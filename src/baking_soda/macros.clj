@@ -69,7 +69,13 @@
     TabPane
     Table
     TetherContent
-    Tooltip])
+    Tooltip
+    UncontrolledAlert
+    UncontrolledButtonDropdown
+    UncontrolledDropdown
+    UncontrolledNavDropdown
+    UncontrolledPopover
+    UncontrolledTooltip])
 
 
 (defn create-reactstrap-component [tag]
