@@ -26,7 +26,7 @@ Then require baking-soda in your namespace.
 
 ```clojure
 (ns foo.bar
-  (:require [baking-soda.core :as bs]))
+  (:require [baking-soda.core :as b]))
 ```
 
 ### Example
@@ -83,10 +83,13 @@ However, in clojurescript with baking-soda, you'd write something like this:
 (ns foo.bar
   (:require
    [reagent.core :as reagent]
-   [baking-soda.core :as bs]))
+   [baking-soda.core :as b]))
 
 (defonce app-state
   (reagent/atom {:show-modal? false}))
+  
+(defn toggle! [ratom]
+  (swap! ratom update :show-modal? not))
 
 (defn modal-example [ratom opts]
   (let [{:keys [button-label
