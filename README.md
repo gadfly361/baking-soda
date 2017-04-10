@@ -2,7 +2,7 @@
 
 baking-soda is an interface between
 clojurescript's [reagent](https://github.com/reagent-project/reagent)
-and [reactstratp](http://reactstrap.github.io/) (i.e., bootstrap 4 react components).
+and [reactstrap](http://reactstrap.github.io/) (i.e., bootstrap 4 react components).
 
 ## Usage
 
