@@ -1,3 +1,7 @@
+## 0.1.2
+
+* [bug fix] remove UncontrolledPopover
+
 ## 0.1.1
 
 * add uncontrolled components:

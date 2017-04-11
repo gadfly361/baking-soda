@@ -74,8 +74,9 @@
     UncontrolledButtonDropdown
     UncontrolledDropdown
     UncontrolledNavDropdown
-    UncontrolledPopover
-    UncontrolledTooltip])
+    ;; UncontrolledPopover
+    UncontrolledTooltip
+    ])
 
 
 (defn create-reactstrap-component [tag]
