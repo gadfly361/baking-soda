@@ -1,10 +1,11 @@
 # baking-soda
 
-baking-soda is an interface between
+Baking-soda is an interface between
 clojurescript's [reagent](https://github.com/reagent-project/reagent)
-and [reactstrap](http://reactstrap.github.io/) (i.e., bootstrap 4 react components).
+and [reactstrap](http://reactstrap.github.io/) (i.e., bootstrap 4 react components) or [react-bootstrap](https://react-bootstrap.github.io/) (i.e., bootstrap 3 react components).
 
-## Usage
+
+## Usage with [Reactstrap](http://reactstrap.github.io/) (bootstrap 4)
 
 Add the following stylesheet to your *index.html*:
 
@@ -12,14 +13,13 @@ Add the following stylesheet to your *index.html*:
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 ```
 
-
 Put the following in the `:dependencies` vector of your *project.clj*
 
 ```clojure
-[reagent "0.6.0" :exclusions [cljsjs/react]]
 [cljsjs/react-with-addons "15.4.2-2"]
+[reagent "0.6.0" :exclusions [cljsjs/react]]
 [cljsjs/react-dom "15.4.2-2" :exclusions [cljsjs/react]]
-[baking-soda "0.1.2"]
+[baking-soda "0.1.3" :exclusions [cljsjs/react]]
 ```
 
 Then require baking-soda in your namespace.
@@ -107,8 +107,7 @@ However, in clojurescript with baking-soda, you'd write something like this:
        "Modal title"]
 
       [b/ModalBody
-       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-	   ]
+       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 
       [b/ModalFooter
        [b/Button {:color    "primary"
@@ -125,6 +124,126 @@ However, in clojurescript with baking-soda, you'd write something like this:
                                             :class        "mymodal"}]
                   (.getElementById js/document "app")))
 ```
+
+## Usage with [React-bootstrap](https://react-bootstrap.github.io/) (bootstrap 3)
+
+Add the following stylesheet to your *index.html*:
+
+```html
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+```
+
+Put the following in the `:dependencies` vector of your *project.clj*
+
+```clojure
+[cljsjs/react-with-addons "15.4.2-2"]
+[reagent "0.6.0" :exclusions [cljsjs/react]]
+[cljsjs/react-dom "15.4.2-2" :exclusions [cljsjs/react]]
+[baking-soda "0.1.3" :exclusions [cljsjs/react]]
+```
+
+Then require baking-soda in your namespace.
+
+```clojure
+(ns foo.bar
+  (:require [baking-soda.bootstrap3 :as b]))
+```
+
+### Example
+
+Let's take a look at a modal. In javascript, you'd write something like this:
+
+```jsx
+const Example = React.createClass({
+  getInitialState() {
+    return { showModal: false };
+  },
+
+  close() {
+    this.setState({ showModal: false });
+  },
+
+  open() {
+    this.setState({ showModal: true });
+  },
+
+  render() {
+    return (
+      <div>
+        <p>Click to get the full Modal experience!</p>
+
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={this.open}
+        >
+          Launch demo modal
+        </Button>
+
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Text in a modal</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<Example />, mountNode);
+```
+
+However, in clojurescript with baking-soda, you'd write something like this:
+
+```clojure
+(ns foo.bar
+  (:require
+   [reagent.core :as reagent]
+   [baking-soda.bootstrap3 :as b3]))
+   
+(defonce app-state
+  (reagent/atom {:show-modal? false}))
+
+(defn modal-open! [ratom]
+  (swap! ratom assoc :show-modal? true))
+
+(defn modal-close! [ratom]
+  (swap! ratom assoc :show-modal? false))
+
+(defn modal-example [ratom]
+  (let [show-modal? (get @ratom :show-modal? false)]
+    [:div
+     [:p "Click to get the full Modal experience!"]
+     [b3/Button {:bs-style "primary"
+                :bs-size  "large"
+                :on-click #(modal-open! ratom)}
+      "Launch demo modal"]
+
+     [b3/Modal {:show    show-modal?
+               :on-hide #(modal-close! ratom)}
+      [b3/ModalHeader {:close-button true}
+       [b3/ModalTitle
+        "Modal Heading"]]
+      [b3/ModalBody
+       [:h4 "text in a modal"]
+       [:p "Duis mollis, est non commodo luctus, nisi erat porttitor ligula."]]
+      [b3/ModalFooter
+       [b3/Button {:on-click #(modal-close! ratom)}
+        "Close"]]
+      ]]))
+
+(defn ^:export main []
+  (reagent/render [modal-example app-state]
+                  (.getElementById js/document "app")))
+```
+
 
 ## Questions
 

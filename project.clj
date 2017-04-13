@@ -1,4 +1,4 @@
-(defproject baking-soda "0.1.2"
+(defproject baking-soda "0.1.3"
   :description "baking-soda is an interface between clojurescript's reagent
                 and reactstrap (i.e., bootstrap 4 react components)"
   :url "https://github.com/gadfly361/baking-soda"
@@ -12,4 +12,5 @@
   [[org.clojure/clojure "1.8.0"]
    [org.clojure/clojurescript "1.9.229"]
    [reagent "0.6.0"]
-   [cljsjs/reactstrap "4.2.0-1"]])
+   [cljsjs/reactstrap "4.2.0-1"]
+   [cljsjs/react-bootstrap "0.30.7-0"]])

@@ -1,3 +1,7 @@
+## 0.1.3
+
+* add support for react-bootstrap in `baking-soda.bootstrap3`
+
 ## 0.1.2
 
 * [bug fix] remove UncontrolledPopover
