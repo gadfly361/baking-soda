@@ -146,7 +146,7 @@ Then require baking-soda in your namespace.
 
 ```clojure
 (ns foo.bar
-  (:require [baking-soda.bootstrap3 :as b]))
+  (:require [baking-soda.bootstrap3 :as b3]))
 ```
 
 ### Example
