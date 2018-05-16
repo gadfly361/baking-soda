@@ -15,7 +15,7 @@
    [cljsjs/react-dom "16.3.2-0"]
    [cljsjs/react-transition-group "2.3.1-0"]
    [cljsjs/react-popper "0.10.4-0"]
-   [reagent "0.8.0" :exclusions [cljsjs/react
+   [reagent "0.8.1" :exclusions [cljsjs/react
                                  cljsjs/react-dom]]
    [cljsjs/reactstrap "6.0.1-0" :exclusions [cljsjs/react
                                              cljsjs/react-dom
