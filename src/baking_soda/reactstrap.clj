@@ -12,6 +12,7 @@
     ButtonToolbar
     Card
     CardBlock
+    CardBody
     CardColumns
     CardDeck
     CardFooter
@@ -23,9 +24,15 @@
     CardSubtitle
     CardText
     CardTitle
+    Carousel
+    CarouselCaption
+    CarouselControl
+    CarouselIndicators
+    CarouselItem
     Col
     Collapse
     Container
+    CustomInput
     Dropdown
     DropdownItem
     DropdownMenu
@@ -39,6 +46,8 @@
     InputGroup
     InputGroupAddon
     InputGroupButton
+    InputGroupButtonDropdown
+    InputGroupText
     Jumbotron
     Label
     ListGroup
@@ -61,21 +70,28 @@
     PaginationItem
     PaginationLink
     Popover
+    PopoverBody
     PopoverContent
+    PopoverHeader
     PopoverTitle
+    PopperContent
+    PopperTargetHelper
+    ;; Portal
     Progress
     Row
     TabContent
     TabPane
     Table
-    TetherContent
+    ;; TetherContent
     Tooltip
     UncontrolledAlert
     UncontrolledButtonDropdown
+    UncontrolledCarousel
     UncontrolledDropdown
     UncontrolledNavDropdown
     ;; UncontrolledPopover
     UncontrolledTooltip
+    Util
     ])
 
 
