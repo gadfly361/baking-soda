@@ -10,17 +10,22 @@ and [reactstrap](http://reactstrap.github.io/) (i.e., bootstrap 4 react componen
 Add the following stylesheet to your *index.html*:
 
 ```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 ```
 
-Put the following in the `:dependencies` vector of your *project.clj*
+Put the following in the `:dependencies` vector of your *project.clj*.
 
 ```clojure
-[cljsjs/react-with-addons "15.4.2-2"]
-[reagent "0.6.0" :exclusions [cljsjs/react]]
-[cljsjs/react-dom "15.4.2-2" :exclusions [cljsjs/react]]
-[baking-soda "0.1.3" :exclusions [cljsjs/react]]
+[baking-soda "0.2.0"]
+[reagent "0.8.1" :exclusions [cljsjs/react
+                              cljsjs/react-dom]]
+[cljsjs/react "16.3.2-0"]
+[cljsjs/react-dom "16.3.2-0"]
+[cljsjs/react-transition-group "2.3.1-0"]
+[cljsjs/react-popper "0.10.4-0"]
 ```
+
+*Note: you need to use reagent 0.8+*
 
 Then require baking-soda in your namespace.
 
@@ -130,17 +135,17 @@ However, in clojurescript with baking-soda, you'd write something like this:
 Add the following stylesheet to your *index.html*:
 
 ```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 ```
 
 Put the following in the `:dependencies` vector of your *project.clj*
 
 ```clojure
-[cljsjs/react-with-addons "15.4.2-2"]
-[reagent "0.6.0" :exclusions [cljsjs/react]]
-[cljsjs/react-dom "15.4.2-2" :exclusions [cljsjs/react]]
-[baking-soda "0.1.3" :exclusions [cljsjs/react]]
+[baking-soda "0.2.0"]
+[reagent "0.7.0"]
 ```
+
+*Note: you need to use reagent 0.7*
 
 Then require baking-soda in your namespace.
 

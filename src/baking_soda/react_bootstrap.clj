@@ -14,6 +14,7 @@
     CarouselItem
     Checkbox
     Clearfix
+    CloseButton
     Col
     Collapse
     ControlLabel
@@ -49,6 +50,7 @@
     PageHeader
     Pager
     Pagination
+    PaginationButton
     Panel
     PanelGroup
     Popover
@@ -65,6 +67,8 @@
     Table
     Tabs ;;
     Thumbnail
+    ToggleButton
+    ToggleButtonGroup
     Tooltip
     Well])
 

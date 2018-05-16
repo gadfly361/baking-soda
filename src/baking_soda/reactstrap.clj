@@ -76,22 +76,18 @@
     PopoverTitle
     PopperContent
     PopperTargetHelper
-    ;; Portal
     Progress
     Row
     TabContent
     TabPane
     Table
-    ;; TetherContent
     Tooltip
     UncontrolledAlert
     UncontrolledButtonDropdown
     UncontrolledCarousel
     UncontrolledDropdown
     UncontrolledNavDropdown
-    ;; UncontrolledPopover
     UncontrolledTooltip
-    Util
     ])
 
 
